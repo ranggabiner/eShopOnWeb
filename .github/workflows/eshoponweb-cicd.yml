@@ -9,7 +9,7 @@ env:
   LOCATION: westeurope
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: c4512534-5333-439d-b1bc-8417dde20a1a
-  WEBAPP-NAME: gako-test-1
+  WEBAPP-NAME: gakoTest
 
 
 jobs:

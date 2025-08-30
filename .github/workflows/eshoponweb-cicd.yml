@@ -76,6 +76,18 @@ jobs:
       uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    
+    # VALIDATE BICEP TEMPLATE (TAMBAH DI SINI)
+    - name: Validate Bicep Template
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          az deployment group validate \
+            -g ${{ env.RESOURCE-GROUP }} \
+            --template-file bicep-template/webapp.bicep \
+            --parameters webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }} \
+            --only-show-errors
            
     # Deploy Azure WebApp using Bicep file
     - name: deploy
